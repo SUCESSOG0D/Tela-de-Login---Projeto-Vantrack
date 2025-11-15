@@ -1,0 +1,220 @@
+/* =========================
+   RESET BÁSICO
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   VARIÁVEIS DE COR
+========================= */
+:root {
+    --azul-fundo:   #e6f4ff;  /* fundo clarinho */
+    --azul-faixa:   #bfe3ff;  /* faixa no topo   */
+    --azul-botao:   #0F6CD5;
+    --branco:       #ffffff;
+    --cinza-borda:  #d9e0ea;
+    --cinza-texto:  #475569;
+    --cinza-ph:     #a9b4c3;
+    --sombra-card:  0 10px 26px rgba(0, 0, 0, 0.18);
+}
+
+/* =========================
+   FUNDO / FAIXA SUPERIOR
+========================= */
+body {
+    font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    min-height: 100vh;
+    background-color: var(--azul-fundo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* faixinha azul no topo da tela */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 26px;               /* ajusta a altura se quiser */
+    background-color: var(--azul-faixa);
+    z-index: -1;
+}
+
+/* =========================
+   CONTEÚDO CENTRAL
+========================= */
+#tela-cadastro {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+.conteudo-cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* =========================
+   TOPO (ÍCONE + TÍTULO)
+========================= */
+.topo-cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px; /* espaço até o card branco */
+}
+
+.icone-motorista,
+.icone-aluno {
+    width: 110px;
+    height: auto;
+}
+
+/* texto "Cadastro Aluno" */
+.topo-cadastro h1 {
+    font-size: 1.9rem;
+    font-weight: 500;
+    color: #1f2933;
+}
+
+/* =========================
+   CARD BRANCO
+========================= */
+#card-cadastro {
+    background-color: var(--branco);
+    width: 100%;
+    max-width: 360px;
+    border-radius: 26px;
+    box-shadow: var(--sombra-card);
+    padding: 26px 26px 24px;
+}
+
+/* garante que não tenha pseudo-elemento de fundo aqui */
+#card-cadastro::before {
+    content: none;
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+#form-cadastro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* campo com ícone */
+.campo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f6f8fb;
+    border-radius: 999px;
+    border: 1px solid var(--cinza-borda);
+    padding: 4px 14px;
+}
+
+.campo span.material-symbols-outlined {
+    font-size: 20px;
+    color: var(--cinza-ph);
+}
+
+/* input */
+.campo input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.9rem;
+    color: #333;
+    padding: 8px 0;
+}
+
+.campo input::placeholder {
+    color: var(--cinza-ph);
+}
+
+/* senha com botão de mostrar */
+.campo-senha {
+    position: relative;
+    padding-right: 6px;
+}
+
+.toggle-senha {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+}
+
+.toggle-senha span {
+    font-size: 20px;
+    color: var(--cinza-ph);
+}
+
+/* lembrar-me */
+.linha-opcoes {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--cinza-texto);
+}
+
+.checkbox-container input {
+    width: 16px;
+    height: 16px;
+}
+
+/* botão cadastrar */
+.btn-cadastrar {
+    margin-top: 6px;
+    border: none;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 999px;
+    background-color: var(--azul-botao);
+    color: var(--branco);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-cadastrar:hover {
+    background-color: #0a56ac;
+}
+
+.btn-cadastrar:active {
+    transform: translateY(1px);
+}
+
+/* responsivo simples */
+@media (min-width: 480px) {
+    #card-cadastro {
+        max-width: 380px;
+    }
+}
